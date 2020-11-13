@@ -1,0 +1,98 @@
+.to-do-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &.show-bulk {
+    height: calc(100vh - 60px) !important;
+  }
+
+  h3 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .to-do-search {
+    width: 70vw;
+
+    .mat-form-field {
+      width: 100%;
+    }
+  }
+
+  .to-do-list {
+    width: 70vw;
+
+    .to-do-entry {
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: unset;
+      }
+
+      .to-do-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid beige;
+        height: 57px;
+        padding: 0 16px;
+
+        .content-left {
+          span {
+            margin-left: 8px;
+          }
+        }
+
+        .content-right {
+          .btn-detail {
+            margin-right: 8px;
+            background-color: #00bcd4;
+            color: white;
+          }
+
+          .btn-remove {
+            background-color: #d9534f;
+            color: white;
+          }
+        }
+      }
+
+      .to-do-detail {
+        border: 1px solid beige;
+        padding: 16px 0;
+      }
+    }
+  }
+}
+
+.bulk-action {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  align-items: center;
+  background-color: #e0e0e0;
+  z-index: 50;
+
+  .btn-done {
+    margin-right: 16px;
+    background-color: #2196f3;
+    color: white;
+  }
+
+  .btn-remove {
+    background-color: #d9534f;
+    color: white;
+    margin-right: 16px;
+  }
+
+  .title {
+    margin-left: 16px;
+  }
+}

@@ -1,0 +1,52 @@
+.add-to-do-container {
+  width: 100%;
+  height: 100%;
+
+  h3 {
+    display: flex;
+    justify-content: center;
+  }
+
+  form {
+    padding: 0 32px;
+  }
+
+  .input-text {
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  .input-select {
+    display: flex;
+
+    .select-date,
+    .select-piority {
+      flex: 1;
+    }
+
+    .select-date {
+      margin-right: 16px;
+    }
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  .action-form {
+    width: 100%;
+    
+    button {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+    }
+  }
+}
+
+::ng-deep .input-select {
+  .mat-form-field-infix {
+    width: unset;
+  }
+}

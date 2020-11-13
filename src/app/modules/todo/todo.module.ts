@@ -1,9 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
@@ -42,14 +38,17 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
+import { TodoRoutingModule } from './todo-routing.module';
+import { ListToDoComponent } from './list-to-do/list-to-do.component';
+import { AddToDoComponent } from './add-to-do/add-to-do.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [ListToDoComponent, AddToDoComponent],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
+    CommonModule,
+    TodoRoutingModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -88,9 +87,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     DragDropModule,
     ScrollingModule,
     MatFormFieldModule,
-    BrowserAnimationsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    FormsModule,
+    ReactiveFormsModule
+  ]
 })
-export class AppModule { }
+export class TodoModule { }

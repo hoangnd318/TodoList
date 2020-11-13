@@ -1,0 +1,54 @@
+<div class="to-do-container" [ngClass]="{'show-bulk' : todosCheck.length > 0}">
+    <div>
+        <a routerLink="add">Add todo</a>
+    </div>
+    <h3>To Do List</h3>
+    <div class="to-do-search">
+        <mat-form-field appearance="outline">
+            <input matInput placeholder="Search..." [(ngModel)]="searchTodoKey" (keyup)="searchTodoListener()" />
+        </mat-form-field>
+    </div>
+    <div class="to-do-list" *ngIf="searchTodoKey===''">
+        <div class="to-do-entry" *ngFor="let todo of todos">
+            <div class="to-do-content">
+                <div class="content-left">
+                    <mat-checkbox (change)="eventCheckTodoListener($event, todo)"></mat-checkbox>
+                    <span>{{ todo.title }}</span>
+                </div>
+                <div class="content-right">
+                    <button mat-raised-button class="btn-detail"
+                        (click)="btnShowDetailTodoListener(todo)">Detail</button>
+                    <button mat-raised-button class="btn-remove" (click)="btnRemoveTodoListener(todo)">Remove</button>
+                </div>
+            </div>
+            <div class="to-do-detail" *ngIf="todo === todoSelect">
+                <app-add-to-do [todo]="todo" (updateEvent)="eventUpdateTodoListener($event)"></app-add-to-do>
+            </div>
+        </div>
+    </div>
+    <div class="to-do-list" *ngIf="searchTodoKey!==''">
+        <div class="to-do-entry" *ngFor="let todo of todosSearch">
+            <div class="to-do-content">
+                <div class="content-left">
+                    <mat-checkbox (change)="eventCheckTodoListener($event, todo)"></mat-checkbox>
+                    <span>{{ todo.title }}</span>
+                </div>
+                <div class="content-right">
+                    <button mat-raised-button class="btn-detail"
+                        (click)="btnShowDetailTodoListener(todo)">Detail</button>
+                    <button mat-raised-button class="btn-remove" (click)="btnRemoveTodoListener(todo)">Remove</button>
+                </div>
+            </div>
+            <div class="to-do-detail" *ngIf="todo === todoSelect">
+                <app-add-to-do [todo]="todo" (updateEvent)="eventUpdateTodoListener($event)"></app-add-to-do>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bulk-action" *ngIf="todosCheck.length > 0">
+    <div class="title">Build action</div>
+    <div class="action">
+        <button mat-raised-button class="btn-done">Done</button>
+        <button mat-raised-button class="btn-remove" (click)="btnBulkRemoveListener()">Remove</button>
+    </div>
+</div>
